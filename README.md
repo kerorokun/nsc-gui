@@ -1,9 +1,10 @@
-# Not-So-Convenient GUI Framework
+# Not-So-Convenient GUI C++ Framework
 A minimal GUI framework with an emphasis on developer freedom. The NSC GUI is designed with the following goals:
 1. It should be easily extensible. Developers are expected to extend this framework with their own elements, pipelines, etc.
-2. It should be non-intrusive. This can be a more controversial point, but users shouldn't be expected to completely inherit a class just to implement an interface.
+2. It should be non-intrusive.
 3. It should be performant.
 4. It should have a small and clear code design.
+5. It should be a framework not an environment.
 
 ## Provided features
 This framework is still very much in its infancy so these features are bound to change. Additionally, since this is in many ways an experiment, alot of techniques used here are not necessarily industry-standards.
