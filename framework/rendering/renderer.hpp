@@ -8,7 +8,7 @@
 #include "camera.hpp"
 #include "text_pipeline.hpp"
 #include "image_pipeline.hpp"
-#include "../core/object_registry.hpp"
+#include "../core/registry.hpp"
 
 class Renderer
 {
@@ -16,7 +16,7 @@ public:
 	Renderer();
 	~Renderer();
 
-	void render(nsc::object_registry *scene, Window *window, Camera *camera);
+	void render(nsc::registry *scene, Window *window, Camera *camera);
 private:
 	std::unique_ptr<TextPipeline> text_pipeline;
 	std::unique_ptr<ImagePipeline> image_pipeline;

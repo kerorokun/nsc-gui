@@ -3,6 +3,7 @@
 #include <cstdint>
 
 #include "../core/event_handler.hpp"
+#include "../core/registry.hpp"
 #include "rectangle.hpp"
 
 namespace nsc::ui {
@@ -13,6 +14,11 @@ class Element {
         this->id = id;
     }
     ~Element() {}
+
+    template <typename Renderable, typename... Args>
+    void add_renderable(Args ...args) {
+        // Call the rendering context's rendering
+    }
 
     template <typename Event, typename Connection>
     nsc::event_handle subscribe_on(Connection &&conn) {

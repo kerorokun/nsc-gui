@@ -5,12 +5,15 @@
 #include <vector>
 #include "font.hpp"
 #include "descriptions.hpp"
+#include "../core/registry.hpp"
 
 class TextPipeline
 {
 public:
 	TextPipeline();
 	~TextPipeline();
+
+	void render(nsc::registry *descs, const glm::mat4 &proj, const glm::mat4 &view);
 
 	void render(const std::vector<TextDesc> *descs,
 				const glm::mat4 &proj, const glm::mat4 &view);

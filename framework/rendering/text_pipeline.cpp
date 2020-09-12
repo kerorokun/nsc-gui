@@ -42,8 +42,7 @@ TextPipeline::~TextPipeline()
 	
 }
 
-void TextPipeline::render(const std::vector<TextDesc> *descs,
-						  const glm::mat4 &proj, const glm::mat4 &view)
+void TextPipeline::render(nsc::registry *descs, const glm::mat4 &proj, const glm::mat4 &view)
 {
 	shader.use();
 	shader.set_mat4("projection", proj);
@@ -53,27 +52,16 @@ void TextPipeline::render(const std::vector<TextDesc> *descs,
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	for (auto desc : *descs) {
-		// render_text_description(desc);
+	for (auto desc : *(descs->get_group<TextDesc>())) {
+		// TODO: Change this render based on the description
 		render_centered(desc);
 	}
-}
 
-void TextPipeline::render(const std::vector<RichTextDesc> *descs,
-						  const glm::mat4 &proj, const glm::mat4 &view)
-{
-	shader.use();
-	shader.set_mat4("projection", proj);
-	shader.set_mat4("view", view);
-
-	glEnable(GL_CULL_FACE);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	for (auto desc : *descs) {
+	for (auto desc : *(descs->get_group<RichTextDesc>())) {
 		render_rich_text(desc);
 	}
 }
+
 
 void TextPipeline::render_text_description(const TextDesc &desc)
 {

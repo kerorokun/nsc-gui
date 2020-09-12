@@ -5,7 +5,7 @@
 
 App::App(int window_width, int window_height) {
     window = std::make_unique<Window>(window_width, window_height);
-    canvas = std::make_unique<nsc::object_registry>();
+    canvas = std::make_unique<nsc::registry>();
     renderer = std::make_unique<Renderer>();
     camera = std::make_unique<Camera>();
 

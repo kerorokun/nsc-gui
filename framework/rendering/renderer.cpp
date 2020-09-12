@@ -18,7 +18,7 @@ Renderer::~Renderer()
 {
 }
 
-void Renderer::render(nsc::object_registry *scene, Window *window, Camera *camera)
+void Renderer::render(nsc::registry *scene, Window *window, Camera *camera)
 {
 	// Get the list of objects for the pipelines
 	auto width = window->get_width();
@@ -32,7 +32,6 @@ void Renderer::render(nsc::object_registry *scene, Window *window, Camera *camer
 	glClearColor(bg.r, bg.g, bg.b, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	image_pipeline->render(scene->get_all<ImageDesc>(), proj, view);
-	text_pipeline->render(scene->get_all<TextDesc>(), proj, view);
-	text_pipeline->render(scene->get_all<RichTextDesc>(), proj, view);
+	image_pipeline->render(scene, proj, view);
+	text_pipeline->render(scene, proj, view);
 }

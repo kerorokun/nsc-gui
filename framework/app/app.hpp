@@ -10,15 +10,12 @@
 #include <utility>
 
 #include "../rendering/camera.hpp"
-#include "../core/object_registry.hpp"
+#include "../core/registry.hpp"
 #include "../ui/element.hpp"
 #include "../core/event_handler.hpp"
 #include "../ui/events.hpp"
 #include "../rendering/renderer.hpp"
 #include "../window/window.hpp"
-
-#define NUM_MOUSE_STATES 10
-
 
 class App {
    public:
@@ -46,7 +43,7 @@ class App {
     virtual void update();
     virtual void render();
     float get_delta_time();
-    std::unique_ptr<nsc::object_registry> canvas;
+    std::unique_ptr<nsc::registry> canvas;
 
    private:
     void main_loop();

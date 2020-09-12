@@ -32,11 +32,6 @@ public:
 	void update();
 	void post_update();
 
-	void handle_mouse_click(int button, int action, int mods);
-	void handle_char_input(unsigned int codepoint);
-	void handle_key(int key, int scancode, int action, int mods);
-	void handle_window_resize(int width, int height);
-
 	void register_mouse_click_callback(std::function<void(int, int, int)> callback);
 	void register_char_input_callback(std::function<void(unsigned int)> callback);
 	void register_key_callback(std::function<void(int, int, int, int)> callback);
@@ -49,6 +44,11 @@ public:
 	float get_cursor_x();
 	float get_cursor_y();
 private:
+	void handle_mouse_click(int button, int action, int mods);
+	void handle_char_input(unsigned int codepoint);
+	void handle_key(int key, int scancode, int action, int mods);
+	void handle_window_resize(int width, int height);
+
 	GLFWwindow *window;
 	GLFWcursor *hand_cursor;
 	GLFWcursor *text_cursor;
